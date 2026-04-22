@@ -91,19 +91,19 @@ function sectionHtml(title: string, rows: Array<[string, string | string[] | und
 
 function buildHtmlEmail(data: PointDeDepartPayload) {
   return `
-    <div style="margin:0;padding:32px 16px;background:#f6f4ef;font-family:Inter,Arial,sans-serif;color:#0f172a;">
+    <div style="margin:0;padding:32px 16px;background:#f3f6fb;font-family:Inter,Arial,sans-serif;color:#0f172a;">
       <div style="max-width:820px;margin:0 auto;">
         <div style="text-align:center;margin:0 0 24px;">
-          <div style="font-family:Georgia,'Times New Roman',serif;font-size:52px;line-height:1;color:#0f2340;letter-spacing:-0.08em;">
-            <span style="display:inline-block;margin-right:-8px;">A</span><span style="display:inline-block;">C</span>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:52px;line-height:1;color:#0f2340;letter-spacing:-0.07em;">
+            <span style="display:inline-block;margin-right:-6px;">A</span><span style="display:inline-block;">C</span>
           </div>
           <div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.2;color:#1a2740;margin-top:8px;">
             arnaudcrestey.com
           </div>
-          <div style="width:76px;height:1px;background:#cfd5df;margin:18px auto 0;" />
+          <div style="width:76px;height:1px;background:#cfd5df;margin:18px auto 0;"></div>
         </div>
 
-        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:32px;">
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:22px;padding:32px;">
           <p style="margin:0 0 26px;font-size:15px;line-height:1.8;color:#334155;">
             Un nouveau formulaire <strong>Point de départ du projet</strong> a été transmis.
           </p>
