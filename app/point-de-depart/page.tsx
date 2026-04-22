@@ -16,8 +16,8 @@ export default function PointDeDepartPage() {
               className={`${signatureFont.className} select-none text-[4.4rem] font-medium leading-none tracking-[-0.08em] text-[#0f2340] sm:text-[5.2rem]`}
               aria-label="AC"
             >
-              <span className="relative -mr-3 inline-block">A</span>
-              <span className="relative inline-block">C</span>
+             <span className="relative -mr-1 inline-block">A</span>
+               <span className="relative inline-block">C</span>
             </div>
 
             <p
