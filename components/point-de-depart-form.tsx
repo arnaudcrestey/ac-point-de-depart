@@ -698,43 +698,40 @@ export function PointDeDepartForm() {
         </div>
       </SectionCard>
 
-      <section className="rounded-[2rem] border border-white/70 bg-white/72 p-6 shadow-[0_18px_50px_rgba(76,93,135,0.08)] backdrop-blur-[6px] sm:p-8 md:p-10">
-        <div className="mx-auto max-w-2xl text-center sm:text-left">
-          <p className="text-[1rem] leading-8 text-slate-600 sm:text-[1.02rem]">
-            Une fois ce formulaire envoyé, je pourrai cadrer le projet sur des bases plus
-            claires, avec moins d’allers-retours inutiles.
-          </p>
+      <section className="rounded-[2rem] border border-white/70 bg-white/72 p-7 shadow-[0_18px_50px_rgba(76,93,135,0.08)] backdrop-blur-[6px] sm:p-9 md:p-10">
+  <div className="mx-auto max-w-2xl text-center">
+    <p className="text-[1.02rem] leading-8 text-slate-600 sm:text-[1.06rem]">
+      Une fois ce formulaire transmis, je pourrai poser une base de travail plus claire,
+      plus cohérente et plus solide pour démarrer le projet dans de bonnes conditions.
+    </p>
 
-          {status === "success" ? (
-            <p
-              className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm leading-7 text-emerald-800"
-              role="status"
-            >
-              Merci. Votre formulaire a bien été transmis. Il va me permettre de cadrer le
-              projet sur des bases claires avant le démarrage.
-            </p>
-          ) : null}
+    {status === "success" ? (
+      <p
+        className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm leading-7 text-emerald-800"
+        role="status"
+      >
+        Merci. Votre formulaire a bien été transmis. Il va me permettre de cadrer le
+        projet sur des bases claires avant le démarrage.
+      </p>
+    ) : null}
 
-          {status === "error" ? (
-            <p
-              className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm leading-7 text-rose-700"
-              role="alert"
-            >
-              {errorMessage}
-            </p>
-          ) : null}
+    {status === "error" ? (
+      <p
+        className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm leading-7 text-rose-700"
+        role="alert"
+      >
+        {errorMessage}
+      </p>
+    ) : null}
 
-          <div className="mt-8 flex justify-center sm:justify-start">
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="inline-flex min-w-[220px] items-center justify-center rounded-2xl bg-gradient-to-r from-[#3b82f6] to-[#2563eb] px-8 py-4 text-base font-medium text-white shadow-[0_18px_40px_rgba(37,99,235,0.25)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_22px_50px_rgba(37,99,235,0.35)] disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {status === "loading" ? "Envoi en cours..." : "Envoyer le formulaire"}
-            </button>
-          </div>
-        </div>
-      </section>
-    </form>
-  );
-}
+    <div className="mt-8 flex justify-center">
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="inline-flex min-w-[240px] items-center justify-center rounded-2xl bg-gradient-to-r from-[#3b82f6] to-[#2563eb] px-9 py-4 text-base font-medium text-white shadow-[0_18px_40px_rgba(37,99,235,0.25)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_22px_50px_rgba(37,99,235,0.35)] disabled:cursor-not-allowed disabled:opacity-70"
+      >
+        {status === "loading" ? "Envoi en cours..." : "Envoyer le formulaire"}
+      </button>
+    </div>
+  </div>
+</section>
