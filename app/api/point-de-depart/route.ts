@@ -15,7 +15,8 @@ const escapeHtml = (value: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
-const isAllowedValue = (value: string | undefined, allowed: readonly string[]) => !value || allowed.includes(value);
+const isAllowedValue = (value: string | undefined, allowed: readonly string[]) =>
+  !value || allowed.includes(value);
 
 function validatePayload(payload: PointDeDepartPayload) {
   for (const field of requiredFields) {
@@ -65,75 +66,102 @@ function validatePayload(payload: PointDeDepartPayload) {
 
 function sectionHtml(title: string, rows: Array<[string, string | string[] | undefined]>) {
   return `
-  <section style="margin: 0 0 24px;">
-    <h2 style="font-size:16px;margin:0 0 10px;color:#0f172a;">${escapeHtml(title)}</h2>
-    <table style="width:100%;border-collapse:collapse;">
-      ${rows
-        .map(
-          ([label, value]) => `
-          <tr>
-            <td style="vertical-align:top;padding:8px 0;width:230px;color:#475569;font-weight:600;">${escapeHtml(
-              label,
-            )}</td>
-            <td style="vertical-align:top;padding:8px 0;color:#0f172a;">${escapeHtml(oneLine(value))}</td>
-          </tr>`,
-        )
-        .join("")}
-    </table>
-  </section>`;
+    <section style="margin:0 0 28px;">
+      <h2 style="margin:0 0 12px;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#64748b;">
+        ${escapeHtml(title)}
+      </h2>
+      <table style="width:100%;border-collapse:collapse;">
+        ${rows
+          .map(
+            ([label, value]) => `
+              <tr>
+                <td style="vertical-align:top;padding:10px 0;width:240px;color:#475569;font-weight:600;border-top:1px solid #e2e8f0;">
+                  ${escapeHtml(label)}
+                </td>
+                <td style="vertical-align:top;padding:10px 0;color:#0f172a;border-top:1px solid #e2e8f0;">
+                  ${escapeHtml(oneLine(value))}
+                </td>
+              </tr>`,
+          )
+          .join("")}
+      </table>
+    </section>
+  `;
 }
 
 function buildHtmlEmail(data: PointDeDepartPayload) {
   return `
-  <div style="font-family:Inter,Arial,sans-serif;line-height:1.55;color:#0f172a;max-width:760px;margin:0 auto;padding:24px;background:#f8fafc;">
-    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:28px;">
-      <p style="margin:0 0 18px;color:#334155;">Nouveau formulaire reçu depuis la page <strong>/point-de-depart</strong>.</p>
-      ${sectionHtml("Activité & contexte", [
-        ["Activité", data.activite],
-        ["Ancienneté", data.anciennete],
-        ["Cible", data.cible],
-        ["Valeur", data.valeur],
-        ["Source principale de revenus", data.revenusPrincipaux],
-      ])}
-      ${sectionHtml("Situation actuelle", [
-        ["Éléments existants", data.elementsExistants],
-        ["Liens principaux", data.liensPrincipaux],
-        ["Acquisition clients", data.acquisitionClients],
-        ["Offre claire", data.offreClaire],
-        ["Résumé situation", data.resumeSituation],
-      ])}
-      ${sectionHtml("Objectif du projet", [
-        ["Pourquoi maintenant", data.raisonMaintenant],
-        ["Objectif principal", data.objectifPrincipal],
-        ["Résultat attendu", data.resultatAttendu],
-        ["Impact si réussi", data.impactSiReussi],
-      ])}
-      ${sectionHtml("Positionnement & perception", [
-        ["Activité bien comprise", data.activiteComprise],
-        ["Principal décalage", data.principalDecalage],
-        ["Perception souhaitée", data.perceptionSouhaitee],
-        ["À éviter dans l’image", data.aEviterEnImage],
-      ])}
-      ${sectionHtml("Univers & références", [
-        ["Identité existante", data.identiteExistante],
-        ["Orientation identité", data.orientationIdentite],
-        ["Références", data.references],
-        ["Ce qui plaît", data.ceQuiPlaitReferences],
-      ])}
-      ${sectionHtml("Freins & inquiétudes", [
-        ["Inquiétudes", data.inquietudes],
-        ["Mauvaise expérience", data.mauvaiseExperience],
-        ["À éviter cette fois-ci", data.quoiEviterCetteFois],
-        ["À éviter absolument", data.aEviterAbsolument],
-      ])}
-      ${sectionHtml("Cadre du projet", [
-        ["Budget", data.budget],
-        ["Contrainte délai", data.contrainteDelai],
-        ["Implication", data.implication],
-        ["Éléments importants", data.elementsImportants],
-      ])}
+    <div style="margin:0;padding:32px 16px;background:#f6f4ef;font-family:Inter,Arial,sans-serif;color:#0f172a;">
+      <div style="max-width:820px;margin:0 auto;">
+        <div style="text-align:center;margin:0 0 24px;">
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:52px;line-height:1;color:#0f2340;letter-spacing:-0.08em;">
+            <span style="display:inline-block;margin-right:-8px;">A</span><span style="display:inline-block;">C</span>
+          </div>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.2;color:#1a2740;margin-top:8px;">
+            arnaudcrestey.com
+          </div>
+          <div style="width:76px;height:1px;background:#cfd5df;margin:18px auto 0;" />
+        </div>
+
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:32px;">
+          <p style="margin:0 0 26px;font-size:15px;line-height:1.8;color:#334155;">
+            Un nouveau formulaire <strong>Point de départ du projet</strong> a été transmis.
+          </p>
+
+          ${sectionHtml("Activité & contexte", [
+            ["Activité", data.activite],
+            ["Ancienneté", data.anciennete],
+            ["Cible", data.cible],
+            ["Valeur", data.valeur],
+            ["Source principale de revenus", data.revenusPrincipaux],
+          ])}
+
+          ${sectionHtml("Situation actuelle", [
+            ["Éléments existants", data.elementsExistants],
+            ["Liens principaux", data.liensPrincipaux],
+            ["Acquisition clients", data.acquisitionClients],
+            ["Offre claire", data.offreClaire],
+            ["Résumé situation", data.resumeSituation],
+          ])}
+
+          ${sectionHtml("Objectif du projet", [
+            ["Pourquoi maintenant", data.raisonMaintenant],
+            ["Objectif principal", data.objectifPrincipal],
+            ["Résultat attendu", data.resultatAttendu],
+            ["Impact si réussi", data.impactSiReussi],
+          ])}
+
+          ${sectionHtml("Positionnement & perception", [
+            ["Activité bien comprise", data.activiteComprise],
+            ["Principal décalage", data.principalDecalage],
+            ["Perception souhaitée", data.perceptionSouhaitee],
+            ["À éviter dans l’image", data.aEviterEnImage],
+          ])}
+
+          ${sectionHtml("Univers & références", [
+            ["Identité existante", data.identiteExistante],
+            ["Orientation identité", data.orientationIdentite],
+            ["Références", data.references],
+            ["Ce qui plaît", data.ceQuiPlaitReferences],
+          ])}
+
+          ${sectionHtml("Freins & inquiétudes", [
+            ["Inquiétudes", data.inquietudes],
+            ["Mauvaise expérience", data.mauvaiseExperience],
+            ["À éviter cette fois-ci", data.quoiEviterCetteFois],
+            ["À éviter absolument", data.aEviterAbsolument],
+          ])}
+
+          ${sectionHtml("Cadre du projet", [
+            ["Budget", data.budget],
+            ["Contrainte délai", data.contrainteDelai],
+            ["Implication", data.implication],
+            ["Éléments importants", data.elementsImportants],
+          ])}
+        </div>
+      </div>
     </div>
-  </div>`;
+  `;
 }
 
 function buildTextEmail(data: PointDeDepartPayload) {
