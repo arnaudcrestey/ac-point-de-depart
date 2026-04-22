@@ -74,17 +74,17 @@ function SectionCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-[1.6rem] border border-slate-200/80 bg-white/95 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] backdrop-blur sm:p-8">
+    <section className="rounded-[2rem] border border-white/70 bg-white/70 p-6 shadow-[0_18px_50px_rgba(76,93,135,0.08)] backdrop-blur-[6px] sm:p-8 md:p-10">
       <div className="mb-7">
-        <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-slate-400">
+        <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-[#7b8db8]">
           {String(index).padStart(2, "0")}
         </p>
         <h2
-          className={`${sectionFont.className} mt-2 text-[1.8rem] font-semibold leading-none tracking-[-0.02em] text-slate-900`}
+          className={`${sectionFont.className} mt-2 text-[1.8rem] font-semibold leading-none tracking-[-0.02em] text-[#1a2740]`}
         >
           {title}
         </h2>
-        <div className="mt-4 h-px w-16 bg-slate-200" />
+        <div className="mt-4 h-px w-16 bg-[#d7deee]" />
       </div>
 
       {children}
@@ -93,10 +93,10 @@ function SectionCard({
 }
 
 const fieldClassName =
-  "w-full rounded-xl border border-slate-300/90 bg-white px-4 py-3 text-[0.98rem] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-400 focus:ring-2 focus:ring-slate-200";
+  "w-full rounded-xl border border-[#cfd7e7] bg-white/90 px-4 py-3 text-[0.98rem] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#7aa2ff] focus:ring-2 focus:ring-[#d9e6ff]";
 
 const textareaClassName =
-  "w-full rounded-xl border border-slate-300/90 bg-white px-4 py-3 text-[0.98rem] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-400 focus:ring-2 focus:ring-slate-200";
+  "w-full rounded-xl border border-[#cfd7e7] bg-white/90 px-4 py-3 text-[0.98rem] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#7aa2ff] focus:ring-2 focus:ring-[#d9e6ff]";
 
 export function PointDeDepartForm() {
   const [form, setForm] = useState<PointDeDepartPayload>(initialValues);
@@ -165,7 +165,7 @@ export function PointDeDepartForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-8" noValidate>
+    <form onSubmit={onSubmit} className="mx-auto max-w-3xl space-y-8" noValidate>
       <SectionCard index={1} title="Activité & contexte">
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="sm:col-span-2">
@@ -260,13 +260,13 @@ export function PointDeDepartForm() {
               {options.elementsExistants.map((item) => (
                 <label
                   key={item}
-                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-[0.95rem] text-slate-700"
+                  className="flex items-center gap-3 rounded-xl border border-[#d8e0ee] bg-[#f8faff] px-4 py-3 text-[0.95rem] text-slate-700"
                 >
                   <input
                     type="checkbox"
                     checked={form.elementsExistants.includes(item)}
                     onChange={() => toggleMultiValue("elementsExistants", item)}
-                    className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-400"
+                    className="h-4 w-4 rounded border-slate-300 text-[#2563eb] focus:ring-[#93c5fd]"
                   />
                   {item}
                 </label>
@@ -457,13 +457,13 @@ export function PointDeDepartForm() {
               {options.perceptionSouhaitee.map((item) => (
                 <label
                   key={item}
-                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-[0.95rem] text-slate-700"
+                  className="flex items-center gap-3 rounded-xl border border-[#d8e0ee] bg-[#f8faff] px-4 py-3 text-[0.95rem] text-slate-700"
                 >
                   <input
                     type="checkbox"
                     checked={form.perceptionSouhaitee.includes(item)}
                     onChange={() => toggleMultiValue("perceptionSouhaitee", item)}
-                    className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-400"
+                    className="h-4 w-4 rounded border-slate-300 text-[#2563eb] focus:ring-[#93c5fd]"
                   />
                   {item}
                 </label>
@@ -692,7 +692,7 @@ export function PointDeDepartForm() {
         </div>
       </SectionCard>
 
-      <section className="rounded-[1.6rem] border border-slate-200/80 bg-white/95 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] backdrop-blur sm:p-8">
+      <section className="rounded-[2rem] border border-white/70 bg-white/70 p-6 shadow-[0_18px_50px_rgba(76,93,135,0.08)] backdrop-blur-[6px] sm:p-8 md:p-10">
         <p className="max-w-2xl text-[0.98rem] leading-8 text-slate-600">
           Une fois ce formulaire envoyé, je pourrai cadrer le projet sur des bases plus claires,
           avec moins d’allers-retours inutiles.
@@ -717,14 +717,19 @@ export function PointDeDepartForm() {
           </p>
         ) : null}
 
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#2563eb] px-8 py-3.5 text-sm font-medium text-white shadow-[0_12px_30px_rgba(37,99,235,0.22)] transition hover:bg-[#1d4ed8] disabled:cursor-not-allowed disabled:opacity-70"
-        >
-          {status === "loading" ? "Envoi en cours..." : "Envoyer le formulaire"}
-        </button>
+        <div className="mt-8 flex justify-center sm:justify-start">
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#3b82f6] to-[#2563eb] px-8 py-4 text-base font-medium text-white shadow-[0_18px_40px_rgba(37,99,235,0.25)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_22px_50px_rgba(37,99,235,0.35)] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+          >
+            {status === "loading" ? "Envoi en cours..." : "Envoyer le formulaire"}
+          </button>
+        </div>
       </section>
     </form>
   );
 }
+voila le code entier du form composant
+je veux le fond qui fasse comme capture 2 : fais bien attention a tout le code
+faut il modifier autre chose ?
