@@ -9,7 +9,7 @@ const sectionFont = Cormorant_Garamond({
   weight: ["500", "600"],
 });
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "loading" | "error";
 
 const initialValues: PointDeDepartPayload = {
   activite: "",
@@ -141,16 +141,10 @@ export function PointDeDepartForm() {
     }
 
     try {
-      const response = await fetch("/api/point-de-part", {
+      const response = await fetch("/api/point-de-depart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
-      }).catch(async () => {
-        return fetch("/api/point-de-depart", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        });
       });
 
       if (!response.ok) {
@@ -158,7 +152,7 @@ export function PointDeDepartForm() {
         throw new Error(data?.error ?? "Une erreur est survenue lors de l’envoi du formulaire.");
       }
 
-     window.location.href = "/point-de-depart/succes"; 
+      window.location.href = "/point-de-depart/succes";
     } catch (error) {
       setStatus("error");
       setErrorMessage(
@@ -697,21 +691,11 @@ export function PointDeDepartForm() {
         </div>
       </SectionCard>
 
-           <section className="rounded-[2rem] border border-white/70 bg-white/72 p-7 shadow-[0_18px_50px_rgba(76,93,135,0.08)] backdrop-blur-[6px] sm:p-9 md:p-10">
+      <section className="rounded-[2rem] border border-white/70 bg-white/72 p-7 shadow-[0_18px_50px_rgba(76,93,135,0.08)] backdrop-blur-[6px] sm:p-9 md:p-10">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[1.02rem] leading-8 text-slate-600 sm:text-[1.06rem]">
-            <p className="text-[1.02rem] leading-8 text-slate-600 sm:text-[1.06rem]">
-  Ce formulaire me permet de comprendre précisément votre situation et de poser un cadre de travail solide pour la suite du projet.
-</p>
-       
-          {status === "success" ? (
-            <p
-              className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm leading-7 text-emerald-800"
-              role="status"
-            >
-              Merci. Votre formulaire a bien été transmis. 
-            </p>
-          ) : null}
+            Ce formulaire me permet de comprendre précisément votre situation et de poser un cadre de travail solide pour la suite du projet.
+          </p>
 
           {status === "error" ? (
             <p
