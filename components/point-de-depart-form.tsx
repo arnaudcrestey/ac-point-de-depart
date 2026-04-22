@@ -703,8 +703,7 @@ export function PointDeDepartForm() {
             <p className="text-[1.02rem] leading-8 text-slate-600 sm:text-[1.06rem]">
   Ce formulaire me permet de comprendre précisément votre situation et de poser un cadre de travail solide pour la suite du projet.
 </p>
-          </p>
-
+       
           {status === "success" ? (
             <p
               className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm leading-7 text-emerald-800"
