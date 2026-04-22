@@ -12,6 +12,10 @@ const sectionFont = Cormorant_Garamond({
 type Status = "idle" | "loading" | "error";
 
 const initialValues: PointDeDepartPayload = {
+  prenom: "",
+  nom: "",
+  email: "",
+  entreprise: "",
   activite: "",
   anciennete: "",
   cible: "",
@@ -165,6 +169,60 @@ export function PointDeDepartForm() {
 
   return (
     <form onSubmit={onSubmit} className="mx-auto max-w-3xl space-y-8" noValidate>
+      <SectionCard index={0} title="Informations">
+  <div className="grid gap-5 sm:grid-cols-2">
+
+    <div>
+      <FieldLabel htmlFor="prenom" required>
+        Prénom
+      </FieldLabel>
+      <input
+        id="prenom"
+        value={(form as any).prenom || ""}
+        onChange={(e) => updateField("prenom" as any, e.target.value)}
+        className={fieldClassName}
+      />
+    </div>
+
+    <div>
+      <FieldLabel htmlFor="nom" required>
+        Nom
+      </FieldLabel>
+      <input
+        id="nom"
+        value={(form as any).nom || ""}
+        onChange={(e) => updateField("nom" as any, e.target.value)}
+        className={fieldClassName}
+      />
+    </div>
+
+    <div className="sm:col-span-2">
+      <FieldLabel htmlFor="email" required>
+        Email
+      </FieldLabel>
+      <input
+        id="email"
+        type="email"
+        value={(form as any).email || ""}
+        onChange={(e) => updateField("email" as any, e.target.value)}
+        className={fieldClassName}
+      />
+    </div>
+
+    <div className="sm:col-span-2">
+      <FieldLabel htmlFor="entreprise">
+        Société / Entreprise (si applicable)
+      </FieldLabel>
+      <input
+        id="entreprise"
+        value={(form as any).entreprise || ""}
+        onChange={(e) => updateField("entreprise" as any, e.target.value)}
+        className={fieldClassName}
+      />
+    </div>
+
+  </div>
+</SectionCard>
       <SectionCard index={1} title="Activité & contexte">
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="sm:col-span-2">
