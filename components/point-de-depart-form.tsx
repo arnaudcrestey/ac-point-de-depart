@@ -730,6 +730,4 @@ export function PointDeDepartForm() {
     </form>
   );
 }
-voila le code entier du form composant
-je veux le fond qui fasse comme capture 2 : fais bien attention a tout le code
-faut il modifier autre chose ?
+
