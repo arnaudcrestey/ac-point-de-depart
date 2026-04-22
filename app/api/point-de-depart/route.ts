@@ -20,7 +20,7 @@ const isAllowedValue = (value: string | undefined, allowed: readonly string[]) =
 function validatePayload(payload: PointDeDepartPayload) {
   for (const field of requiredFields) {
     if (!String(payload[field] ?? "").trim()) {
-      return `Le champ requis \"${field}\" est manquant.`;
+      return `Le champ requis "${field}" est manquant.`;
     }
   }
 
@@ -44,11 +44,19 @@ function validatePayload(payload: PointDeDepartPayload) {
     return "Une ou plusieurs valeurs de sélection sont invalides.";
   }
 
-  if (!payload.elementsExistants.every((item) => options.elementsExistants.includes(item))) {
+  if (
+    !payload.elementsExistants.every((item) =>
+      (options.elementsExistants as readonly string[]).includes(item),
+    )
+  ) {
     return "Les éléments existants contiennent une valeur invalide.";
   }
 
-  if (!payload.perceptionSouhaitee.every((item) => options.perceptionSouhaitee.includes(item))) {
+  if (
+    !payload.perceptionSouhaitee.every((item) =>
+      (options.perceptionSouhaitee as readonly string[]).includes(item),
+    )
+  ) {
     return "La perception souhaitée contient une valeur invalide.";
   }
 
