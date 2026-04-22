@@ -700,8 +700,9 @@ export function PointDeDepartForm() {
            <section className="rounded-[2rem] border border-white/70 bg-white/72 p-7 shadow-[0_18px_50px_rgba(76,93,135,0.08)] backdrop-blur-[6px] sm:p-9 md:p-10">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[1.02rem] leading-8 text-slate-600 sm:text-[1.06rem]">
-            Une fois ce formulaire transmis, je pourrai poser une base de travail plus claire,
-            plus cohérente et plus solide pour démarrer le projet dans de bonnes conditions.
+            <p className="text-[1.02rem] leading-8 text-slate-600 sm:text-[1.06rem]">
+  Ce formulaire me permet de comprendre précisément votre situation et de poser un cadre de travail solide pour la suite du projet.
+</p>
           </p>
 
           {status === "success" ? (
@@ -709,8 +710,7 @@ export function PointDeDepartForm() {
               className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm leading-7 text-emerald-800"
               role="status"
             >
-              Merci. Votre formulaire a bien été transmis. Il va me permettre de cadrer le
-              projet sur des bases claires avant le démarrage.
+              Merci. Votre formulaire a bien été transmis. 
             </p>
           ) : null}
 
