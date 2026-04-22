@@ -8,11 +8,17 @@ html {
 
 body {
   margin: 0;
-  background: #f8f6f2;
+  background: #f6f4ef;
   color: #0f172a;
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(15, 35, 64, 0.12);
 }
