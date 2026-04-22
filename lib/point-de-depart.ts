@@ -1,4 +1,8 @@
 export type PointDeDepartPayload = {
+  prenom: string;
+  nom: string;
+  email: string;
+  entreprise: string;
   activite: string;
   anciennete: string;
   cible: string;
@@ -89,6 +93,9 @@ export const options = {
 } as const;
 
 export const requiredFields: Array<keyof PointDeDepartPayload> = [
+  "prenom",
+"nom",
+"email",
   "activite",
   "anciennete",
   "cible",
