@@ -158,8 +158,7 @@ export function PointDeDepartForm() {
         throw new Error(data?.error ?? "Une erreur est survenue lors de l’envoi du formulaire.");
       }
 
-      setStatus("success");
-      setForm(initialValues);
+     window.location.href = "/point-de-depart/succes"; 
     } catch (error) {
       setStatus("error");
       setErrorMessage(
