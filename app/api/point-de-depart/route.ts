@@ -108,6 +108,13 @@ function buildHtmlEmail(data: PointDeDepartPayload) {
             Un nouveau formulaire <strong>Point de départ du projet</strong> a été transmis.
           </p>
 
+          ${sectionHtml("Informations", [
+            ["Prénom", data.prenom],
+            ["Nom", data.nom],
+            ["Email", data.email],
+            ["Société / Entreprise", data.entreprise],
+          ])}
+
           ${sectionHtml("Activité & contexte", [
             ["Activité", data.activite],
             ["Ancienneté", data.anciennete],
@@ -166,6 +173,13 @@ function buildHtmlEmail(data: PointDeDepartPayload) {
 
 function buildTextEmail(data: PointDeDepartPayload) {
   const blocks = [
+    [
+      "INFORMATIONS",
+      `- Prénom : ${oneLine(data.prenom)}`,
+      `- Nom : ${oneLine(data.nom)}`,
+      `- Email : ${oneLine(data.email)}`,
+      `- Société / Entreprise : ${oneLine(data.entreprise)}`,
+    ],
     [
       "ACTIVITÉ & CONTEXTE",
       `- Activité : ${oneLine(data.activite)}`,
