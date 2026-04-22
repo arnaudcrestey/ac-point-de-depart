@@ -720,7 +720,7 @@ export function PointDeDepartForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#0f2340] px-8 py-3.5 text-sm font-medium text-white transition hover:bg-[#162b49] disabled:cursor-not-allowed disabled:opacity-70"
+          className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#2563eb] px-8 py-3.5 text-sm font-medium text-white shadow-[0_12px_30px_rgba(37,99,235,0.22)] transition hover:bg-[#1d4ed8] disabled:cursor-not-allowed disabled:opacity-70"
         >
           {status === "loading" ? "Envoi en cours..." : "Envoyer le formulaire"}
         </button>
