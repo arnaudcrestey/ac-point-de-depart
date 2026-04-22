@@ -8,7 +8,7 @@ const signatureFont = Cormorant_Garamond({
 
 export default function PointDeDepartPage() {
   return (
-    <main className="min-h-screen bg-[#f6f4ef] px-4 py-10 text-slate-900 sm:px-6 lg:px-8 lg:py-16">
+    <main className="min-h-screen bg-transparent px-4 py-10 text-slate-900 sm:px-6 lg:px-8 lg:py-16">
       <div className="mx-auto w-full max-w-3xl">
         <header className="mb-16 text-center sm:mb-20">
           <div className="mx-auto flex max-w-sm flex-col items-center">
