@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
 import { PointDeDepartForm } from "@/components/point-de-depart-form";
 
@@ -12,19 +13,14 @@ export default function PointDeDepartPage() {
       <div className="mx-auto w-full max-w-5xl">
         <header className="mb-12 text-center sm:mb-16">
           <div className="mx-auto flex max-w-sm flex-col items-center">
-            <div
-              className={`${signatureFont.className} select-none text-[4.4rem] font-medium leading-none tracking-[-0.07em] text-[#0f2340] sm:text-[5.2rem]`}
-              aria-label="AC"
-            >
-              <span className="relative -mr-1.5 inline-block">A</span>
-              <span className="relative inline-block">C</span>
-            </div>
-
-            <p
-              className={`${signatureFont.className} mt-2 text-[1.05rem] font-medium tracking-[-0.025em] text-[#1a2740] sm:text-[1.22rem]`}
-            >
-              arnaudcrestey.com
-            </p>
+            <Image
+              src="/images/systia-logo.png"
+              alt="SYSTIA"
+              width={340}
+              height={180}
+              priority
+              className="h-auto w-[220px] sm:w-[280px] lg:w-[320px]"
+            />
 
             <div className="mt-5 h-px w-24 bg-[#cfd7e7]" />
           </div>
@@ -38,11 +34,11 @@ export default function PointDeDepartPage() {
           </h1>
 
           <p className="mt-5 max-w-2xl text-[1rem] leading-8 text-slate-600 sm:text-[1.04rem]">
-            Ce document va me permettre de poser une base claire avant de démarrer.
-            L’objectif n’est pas de vous demander un travail technique, mais de mieux
-            comprendre votre activité, votre situation et la direction à donner au projet.
-            Prenez simplement le temps de répondre avec vos mots. Des réponses courtes
-            suffisent.
+            Ce document va me permettre de poser une base claire avant de
+            démarrer. L’objectif n’est pas de vous demander un travail
+            technique, mais de mieux comprendre votre activité, votre situation
+            et la direction à donner au projet. Prenez simplement le temps de
+            répondre avec vos mots. Des réponses courtes suffisent.
           </p>
         </section>
 
