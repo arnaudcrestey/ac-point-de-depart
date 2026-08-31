@@ -21,9 +21,12 @@ const initialValues: PointDeDepartPayload = {
   cible: "",
   valeur: "",
   revenusPrincipaux: "",
+  offresPrincipales: "",
+  offrePrioritaire: "",
   elementsExistants: [],
   liensPrincipaux: "",
   acquisitionClients: "",
+  premiereActionClient: "",
   offreClaire: "",
   resumeSituation: "",
   raisonMaintenant: "",
@@ -38,6 +41,7 @@ const initialValues: PointDeDepartPayload = {
   orientationIdentite: "",
   references: "",
   ceQuiPlaitReferences: "",
+  elementsATransmettre: "",
   inquietudes: "",
   mauvaiseExperience: "",
   quoiEviterCetteFois: "",
@@ -45,6 +49,7 @@ const initialValues: PointDeDepartPayload = {
   budget: "",
   contrainteDelai: "",
   implication: "",
+  decideurs: "",
   elementsImportants: "",
 };
 
@@ -303,6 +308,20 @@ export function PointDeDepartForm() {
               className={fieldClassName}
             />
           </div>
+          <div className="sm:col-span-2">
+            <FieldLabel htmlFor="offresPrincipales">
+              Quelles sont vos offres principales aujourd’hui ?
+            </FieldLabel>
+            <textarea id="offresPrincipales" rows={3} value={form.offresPrincipales} onChange={(e) => updateField("offresPrincipales", e.target.value)} className={textareaClassName} />
+          </div>
+
+          <div className="sm:col-span-2">
+            <FieldLabel htmlFor="offrePrioritaire">
+              Laquelle souhaitez-vous développer ou mettre en avant en premier ?
+            </FieldLabel>
+            <input id="offrePrioritaire" value={form.offrePrioritaire} onChange={(e) => updateField("offrePrioritaire", e.target.value)} className={fieldClassName} />
+          </div>
+
         </div>
       </SectionCard>
 
@@ -395,6 +414,13 @@ export function PointDeDepartForm() {
               ))}
             </select>
           </div>
+          <div>
+            <FieldLabel htmlFor="premiereActionClient">
+              Quand une personne arrive chez vous, que voudriez-vous qu’elle comprenne ou fasse en premier ?
+            </FieldLabel>
+            <textarea id="premiereActionClient" rows={3} value={form.premiereActionClient} onChange={(e) => updateField("premiereActionClient", e.target.value)} className={textareaClassName} />
+          </div>
+
         </div>
       </SectionCard>
 
@@ -610,6 +636,13 @@ export function PointDeDepartForm() {
               className={textareaClassName}
             />
           </div>
+          <div>
+            <FieldLabel htmlFor="elementsATransmettre">
+              Quels éléments pouvez-vous nous transmettre : logo, photos, témoignages, réalisations, textes ou exemples ?
+            </FieldLabel>
+            <textarea id="elementsATransmettre" rows={3} value={form.elementsATransmettre} onChange={(e) => updateField("elementsATransmettre", e.target.value)} className={textareaClassName} />
+          </div>
+
         </div>
       </SectionCard>
 
@@ -746,6 +779,13 @@ export function PointDeDepartForm() {
               className={textareaClassName}
             />
           </div>
+          <div>
+            <FieldLabel htmlFor="decideurs">
+              Qui participe à la décision ou doit valider le projet avec vous ?
+            </FieldLabel>
+            <input id="decideurs" value={form.decideurs} onChange={(e) => updateField("decideurs", e.target.value)} className={fieldClassName} />
+          </div>
+
         </div>
       </SectionCard>
 
