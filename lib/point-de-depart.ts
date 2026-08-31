@@ -40,7 +40,6 @@ export type PointDeDepartPayload = {
   elementsImportants?: string;
 };
 
-
 export const options = {
   anciennete: ["En lancement", "Moins de 1 an", "1 à 3 ans", "Plus de 3 ans"],
   revenusPrincipaux: ["Oui", "Partiellement", "Non"],
@@ -78,3 +77,36 @@ export const options = {
     "Accessible / humain",
     "Premium / haut de gamme",
     "Structuré / clair",
+    "Autre",
+  ],
+  identiteExistante: ["Oui", "Partiellement", "Non"],
+  orientationIdentite: ["Le conserver", "Le faire évoluer", "Repartir de zéro"],
+  mauvaiseExperience: ["Oui", "Non"],
+  budget: [
+    "En cours de définition",
+    "500 – 1 000 €",
+    "1 000 – 3 000 €",
+    "3 000 – 7 000 €",
+    "Plus",
+  ],
+  contrainteDelai: ["Oui, court terme", "Oui, moyen terme", "Non"],
+  implication: [
+    "Je suis très disponible",
+    "Je peux m’impliquer ponctuellement",
+    "J’ai peu de disponibilité",
+  ],
+} as const;
+
+export const requiredFields: Array<keyof PointDeDepartPayload> = [
+  "prenom",
+  "nom",
+  "email",
+  "activite",
+  "anciennete",
+  "cible",
+  "valeur",
+  "revenusPrincipaux",
+  "raisonMaintenant",
+  "objectifPrincipal",
+  "resultatAttendu",
+];
