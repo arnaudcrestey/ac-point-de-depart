@@ -121,12 +121,15 @@ function buildHtmlEmail(data: PointDeDepartPayload) {
             ["Cible", data.cible],
             ["Valeur", data.valeur],
             ["Source principale de revenus", data.revenusPrincipaux],
+            ["Offres principales", data.offresPrincipales],
+            ["Offre à mettre en avant", data.offrePrioritaire],
           ])}
 
           ${sectionHtml("Situation actuelle", [
             ["Éléments existants", data.elementsExistants],
             ["Liens principaux", data.liensPrincipaux],
             ["Acquisition clients", data.acquisitionClients],
+            ["Première action attendue du futur client", data.premiereActionClient],
             ["Offre claire", data.offreClaire],
             ["Résumé situation", data.resumeSituation],
           ])}
@@ -150,6 +153,7 @@ function buildHtmlEmail(data: PointDeDepartPayload) {
             ["Orientation identité", data.orientationIdentite],
             ["Références", data.references],
             ["Ce qui plaît", data.ceQuiPlaitReferences],
+            ["Éléments à transmettre", data.elementsATransmettre],
           ])}
 
           ${sectionHtml("Freins & inquiétudes", [
@@ -163,6 +167,7 @@ function buildHtmlEmail(data: PointDeDepartPayload) {
             ["Budget", data.budget],
             ["Contrainte délai", data.contrainteDelai],
             ["Implication", data.implication],
+            ["Décideurs / validations", data.decideurs],
             ["Éléments importants", data.elementsImportants],
           ])}
         </div>
@@ -187,12 +192,15 @@ function buildTextEmail(data: PointDeDepartPayload) {
       `- Cible : ${oneLine(data.cible)}`,
       `- Valeur : ${oneLine(data.valeur)}`,
       `- Source principale de revenus : ${oneLine(data.revenusPrincipaux)}`,
+      `- Offres principales : ${oneLine(data.offresPrincipales)}`,
+      `- Offre à mettre en avant : ${oneLine(data.offrePrioritaire)}`,
     ],
     [
       "SITUATION ACTUELLE",
       `- Éléments existants : ${oneLine(data.elementsExistants)}`,
       `- Liens principaux : ${oneLine(data.liensPrincipaux)}`,
       `- Acquisition clients : ${oneLine(data.acquisitionClients)}`,
+      `- Première action attendue du futur client : ${oneLine(data.premiereActionClient)}`,
       `- Offre claire : ${oneLine(data.offreClaire)}`,
       `- Résumé situation : ${oneLine(data.resumeSituation)}`,
     ],
@@ -216,6 +224,7 @@ function buildTextEmail(data: PointDeDepartPayload) {
       `- Orientation identité : ${oneLine(data.orientationIdentite)}`,
       `- Références : ${oneLine(data.references)}`,
       `- Ce qui plaît : ${oneLine(data.ceQuiPlaitReferences)}`,
+      `- Éléments à transmettre : ${oneLine(data.elementsATransmettre)}`,
     ],
     [
       "FREINS & INQUIÉTUDES",
@@ -229,6 +238,7 @@ function buildTextEmail(data: PointDeDepartPayload) {
       `- Budget : ${oneLine(data.budget)}`,
       `- Contrainte délai : ${oneLine(data.contrainteDelai)}`,
       `- Implication : ${oneLine(data.implication)}`,
+      `- Décideurs / validations : ${oneLine(data.decideurs)}`,
       `- Éléments importants : ${oneLine(data.elementsImportants)}`,
     ],
   ];
